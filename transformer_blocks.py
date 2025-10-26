@@ -95,7 +95,7 @@ class MLPSepConv(nn.Module):
         return x 
 
 class DecoderBlock(nn.Module):
-    def __init_(
+    def __init__(
             self,
             embed_dim:int,
             is_casual:bool,
@@ -104,7 +104,7 @@ class DecoderBlock(nn.Module):
             mlp_class:type[MLP] | type[MLPSepConv],
 
     ):
-        super().__init_()
+        super().__init__()
         self.self_attention = SelfAttention(embed_dim,is_casual,dropout_level,n_heads=embed_dim//64)
         self.cross_attention = CrossAttention(embed_dim,is_casual=False,dropout_level=0,n_heads=embed_dim//64)
         self.mlp = mlp_class(embed_dim,mlp_multiplier,dropout_level)
